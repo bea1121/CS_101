@@ -1,0 +1,243 @@
+---
+title: "Exercise 2"
+author: "Bea Cariaga"
+date: "2026-09-30"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### Part A - Arithmetic Operations
+
+```{r}
+
+# TODO: Store 17 in a variable called a, and 5 in a variable called b
+# Then print the results of: a + b, a - b, a * b, a / b
+a <- 17
+b <- 5
+
+a + b
+a - b
+a * b
+a / b
+```
+
+```{r}
+# TODO: Using the same a and b, compute and print a %% b and a %/% b
+a %% b
+a %/% b
+```
+
+
+```{r}
+# TODO: Print 2 raised to the power of 10 using the ^ operator
+2^10
+```
+
+Question #1: Run 17 / 5, 17 %% 5, and 17 %/% 5 side by side. In your own words, explain how these three results relate to each other mathematically.
+
+```{r}
+
+div_ab <- a / b
+print(div_ab)
+
+mod_ab <- a %% b
+print(mod_ab)
+
+div_mod_ab <- a %/% b
+print(div_mod_ab)
+
+```
+Answer: The three results relate to each other because require division in their process, while 17 / 5 displays the exact answer of dividing 17 to 5, modulo shows the remainder between 17 / 5 and lastly, 17 %/% 5 shows the integer divisor.
+
+Question #2: Predict the output of 10 %% 3 and 10 %/% 3 before running the code. Were you correct? If not, explain what you misunderstood.
+
+Answer: My predicted output is 1 and 3. And, Yes I am correct.
+```{r}
+mod_1 <- 10 %% 3
+print(mod_1)
+
+div_mod_1 <- 10 %/% 3
+print(div_mod_1)
+```
+
+
+### Part B -  Basic Data  Types
+
+```{r}
+# TODO: Use typeof() to check the type of each of x, y, z, w, v
+x <- 42
+y <- 42L
+z <- "42"
+w <- TRUE
+v <- 3 + 2i
+
+typeof(x)
+typeof(y)
+typeof(z)
+typeof(w)
+typeof(v)
+```
+
+```{r}
+# TODO: Use class() to check the class of each of x, y, z, w, v
+class(x)
+class(y)
+class(z)
+class(w)
+class(v)
+```
+
+
+```{r}
+# TODO: Use mode() to check the class of each of x, y, z, w, v
+mode(x)
+mode(y)
+mode(z)
+mode(w)
+mode(v)
+```
+
+Question #3: x <- 42 and y <- 42L look almost identical, but typeof(x) and typeof(y) give different answers. Explain the difference in your own words.
+
+```{r}
+x <- 42
+y <- 42L
+
+typeof(x)
+typeof(y)
+```
+
+Answer: The difference between the two of them is that, typeof(y) has the letter L in its numerical character making it clear that it is an integer type of data while typeof(x) would just choose other numerical data type there is - in this case, a double - because it's not dictated as L for integer. 
+
+
+Question #4: Is typeof() ever different from class() and from mode() for the same object? Look at your results above and explain any case where this happens (or, if you did not see one, explain what you would expect for a matrix or factor).
+
+Answer: typeof() is different from class() and from mode() because typeof() talks about the specific type of data type it is. In class() and mode() it both shows x as a numeric type of data instead of double shown in typeof().
+
+### Part C - Type Conversion
+
+
+```{r}
+# TODO: Convert num_string to a numeric value using as.numeric()
+# Then check its type with typeof(), class(), and mode()
+
+num_string <- "123"
+
+as.numeric(num_string)
+
+typeof(num_string)
+class(num_string)
+mode(num_string)
+```
+
+
+```{r}
+# TODO: Convert the number 0 and the number 1 to logical using as.logical()
+
+num0 <- 0
+num1 <- 1
+as.logical(num0)
+as.logical(num1)
+```
+
+```{r}
+# TODO: Try converting bad_string to numeric using as.numeric()
+
+bad_string <- "hello123"
+as.numeric(bad_string)
+```
+Question #5: When you ran the conversion-fail chunk, R produced NA and a warning instead of stopping with an error.
+
+Why do you think R is designed to give a warning here rather than crashing the whole script?
+
+Answer: I think that R only gives warning rather than crashing the whole script because it is more practical, it separates each code into chunk meaning if one is to fail, I think it won't affect the other chunks.
+
+Question #6: as.logical(0) and as.logical(1) convert to FALSE and TRUE.
+
+What do you think as.logical(2) and as.logical(-1)` will produce?
+
+
+```{r}
+as.logical(2)
+as.logical(-1)
+```
+Answer: At first, I didn't think that as.logical(2) and as.logical(-1) will produce anything, but it turned out that both as.logical(2) and as.logical(-1) produces both TRUE outcomes.
+
+### Part D - Strings
+
+```{r}
+
+# TODO: Print first_name and last_name using print() and/or cat()
+
+first_name <- "Juan"
+last_name <- "Dela Cruz"
+cat(first_name, last_name)
+```
+
+```{r}
+# TODO: Use paste() to combine first_name and last_name into a full name
+# TODO: Use paste0() to do the same, and compare the two results
+paste(first_name, last_name)
+paste0(first_name, last_name)
+```
+
+```{r}
+# TODO: Use paste() with the argument sep = "-" to join first_name and last_name with a dash instead of a space
+paste(first_name, sep = "-", last_name)
+```
+
+```{r}
+# TODO: Use paste0() to build the sentence:
+# "Juan Dela Cruz is 21 years old." by combining full_name, age, and text
+
+full_name <- "Juan Dela Cruz"
+age <- 21
+
+paste0(full_name, " is ", age, " years old.")
+```
+Question #7: paste() and paste0() produced different results for the same two strings. Explain exactly why, referencing what each function does by default.
+
+Answer: The difference between paste() and paste0() is that, paste() is used to combine two different strings giving them spaces in between, while paste0() produces output without putting sapces between combined strings.
+
+
+Question #8: In the strings-numbers chunk, you combined a character string with a numeric variable (age) using paste0() without first converting age to a string.
+
+Did this cause an error? Explain what paste0() does internally to make this work, and how it relates to the type conversions you practiced in Part C.
+
+Answer: It did not cause an error, paste0() is a valid base R function that simply concatenates strings without a separator, and it works by internally calling. Numeric and logical inputs are safely handled. You can mix types without explicit conversion.
+
+### Part E — Critical Thinking Challenge
+
+```{r}
+#TODO: Predict, then test: what is the result of "5" + 5 in R?
+# Run it and read the error message carefully.
+
+#"5" + 5
+```
+
+
+```{r}
+# TODO: Now fix the code above so that "5" + 5 correctly evaluates to 10
+# using an appropriate conversion function.
+
+result <- as.numeric("5") + 5
+
+print(result)
+```
+Question #9: Some programming languages automatically convert "5" + 5 into 10 without an error. R does not.
+
+Based on what you’ve learned about R’s data types in this lab, why do you think R requires an explicit conversion instead of guessing what the programmer meant?
+
+Answer: Explicit conversion helps prevent hidden mistakes in our data analysis. If R were only to guess what we meant, it might secretly convert our numbers into text or categories into wrong values, making our calculations wrong without warning. Converting data manually helps keep our code accurate and predictable.
+
+Question #10: Suppose a classmate writes a script that reads a column of “numbers” from a text file. The column looks numeric, but when they try sum() on it, R throws an error. Based on everything in this lab (types, typeof()/class()/mode(), conversion, warnings), write a short paragraph explaining what likely went wrong and the steps you’d take to diagnose and fix it.
+
+Answer: R throws an error because there's a problem in the difference of data type, we should find and fix the values conflicting with the main data type we choose the convert it to fit the others.
+
+### Conclusion
+In 3–4 sentences, summarize what you learned about how R handles different data types, and why understanding typeof()/class() and conversion functions matters before doing arithmetic or combining data.
+
+In this lab, I learned that R assigns specific data types—such as character, numeric, or factor—to vectors upon import based on their elements, often defaulting to character strings if even a single non-numeric value is present. Checking data types using `typeof()` and `class()` is essential because operations like `sum()` or mathematical computations fail when applied to non-numeric types. Furthermore, converting data with functions like `as.numeric()` ensures variables are in the proper format, preventing errors and warnings. Learning conversions guarantees that my data is going to be clean and valid.
