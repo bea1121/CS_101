@@ -1,0 +1,179 @@
+---
+title: "R Lab: Data Structures - Vectors and Lists"
+author: "Bea Cariaga"
+date: "2026-11-06"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### Part A — Creating Vectors and List:
+
+Question #1:
+
+A factory has a census of its workers. There are 50 workers in total. The following list shows their ages: `34, 28, 22, 36, 27, 18, 52, 39, 42, 29, 35, 31, 27, 22, 37, 34, 19, 20, 57, 49, 50, 37, 46, 25, 17, 37, 43, 53, 41, 51, 35, 24,33, 41, 53, 40, 18, 44, 38, 41, 48, 27, 39, 19, 30, 61, 54, 58, 26, 18.
+
+a. Create a vector for the worker’s age.
+
+```{r}
+workers_age <- c(34, 28, 22, 36, 27, 18, 52, 39, 42, 29, 35, 31, 27, 22, 37, 34, 19, 20, 57, 49, 50, 37, 46, 25, 17, 37, 43, 53, 41, 51, 35, 24,33, 41, 53, 40, 18, 44, 38, 41, 48, 27, 39, 19, 30, 61, 54, 58, 26, 18)
+workers_age
+```
+The vector now stores: 34, 28, 22, 36, 27, 18, 52, 39, 42, 29, 35, 31, 27, 22, 37, 34, 19, 20, 57, 49, 50, 37, 46, 25, 17, 37, 43, 53, 41, 51, 35, 24,33, 41, 53, 40, 18, 44, 38, 41, 48, 27, 39, 19, 30, 61, 54, 58, 26, and 18.
+
+b. How many data points?
+
+```{r}
+length(workers_age)
+```
+There are 50 data points in worker's age.
+
+
+c. Find the minimum and the maximum value of worker’s age.
+
+```{r}
+min(workers_age)
+max(workers_age) 
+```
+
+The minimum value of worker's age is 17 while the maximum value is 61.
+
+
+d. Access the 13rd to 18th elements and 33th to 35th elements of worker’s Age.
+
+```{r}
+workers_age[13:18] 
+workers_age[33:35] 
+```
+The 13th to 18th elements are: 27, 22, 37, 34, 19, and 20 and 33rd to 35th elements are 33, 41, 53. 
+
+
+e. Access all but the 10th, 20th, 30th and 40th elements are not included.
+
+```{r}
+workers_age[-c(10, 20, 30, 40)] 
+```
+
+All the elements are displayed except elements of 10th, 20th, 30th, and 40th which are 29, 49, 51, and 41 respectively.
+
+
+f: Modify the 4th, 14th, 24th, and 44th elements with value = 0.
+
+```{r}
+workers_age[c(4, 14, 24, 44)] <- 0
+```
+
+Now, the elements of 4th, 14th, 24th, and 44th are modified to 0.
+
+Question #2:
+
+R has actually lots of built-in datasets.
+For example, the rivers data “gives the lengths (in miles) of 141 “major” rivers in North America, as compiled by the US Geological Survey”.
+
+Use data(rivers)
+a. Get the number of elements (length) in rivers, their sum (sum), mean (mean), median(median), variance(var), standard deviation(sd), minimum (min) and maximum (max).
+```{r}
+data(rivers)
+river_status <- c( length(rivers),
+sum(rivers),
+mean(rivers),
+median(rivers),
+var(rivers),
+sd(rivers),
+min(rivers), 
+max(rivers)
+)
+```
+
+To get the number of elements of rivers, their sum, mean, median, variance, standard deviation, minimum, and maximum (max):
+
+data(rivers)
+river_status <- c(length(rivers),
+sum(rivers),
+mean(rivers),
+median(rivers),
+var(rivers),
+sd(rivers),
+min(rivers), 
+max(rivers)
+)
+
+b.The derived result must be in just one(1) vector name.
+
+
+```{r}
+river_status
+```
+Answer: The results of each status of the rivers data are: Length is 141. Sum is 83357. Mean is 591. Median is 425. Variance is 243908,4086. Standard Deviation is 493.8708. Minimum is 135. Maximum 3710. 
+
+Question #3:
+
+The table below gives the 25 most powerful celebrities and their annual pay as ranked by the editions of Forbes magazine and as listed on the Forbes.com website.
+
+Forbes Ranking
+a. Create vectors according to the above table.
+
+```{r}
+power_ranking <- 1:25
+celebrity_name <- c("Tom Cruise", "Rolling Stones", "Oprah Winfrey", "U2", "Tiger Woods", "Steven Spielberg", "Howard Stern", "50 Cent", "Cast of the Sopranos", "Dan Brown", "Bruce Springsteen", "Donald Trump", "Muhammad Ali", "Paul McCartney", "George Lucas", "Elton John", "David Letterman",  "Phil Mickelson", "J.K Rowling", "Bradd Pitt", "Peter Jackson","Dr. Phil McGraw", "Jay Leno", "Celine Dion", "Kobe Bryant"
+)
+pay <- c(67, 90, 225, 110, 90, 332, 302, 41, 52, 88, 55, 44, 55, 40, 233, 34, 40, 47, 75, 25, 39, 45, 32, 40, 31)
+power_ranking
+celebrity_name
+pay
+
+```
+The table has now been inputted in their respected place, the rankings have 25 numbers, there are also 25 celebrity names in there, and lastly their annual pay.
+
+b. Modify the power ranking and pay of J.K. Rowling. Change power ranking to 15 and pay to 90.
+
+```{r}
+power_ranking[19] <- 15
+pay[19] <- 90
+```
+
+With this, the power ranking and pay of J.K. Rowling is now modified to rank 15 and 90 pay.
+
+Question #4:
+
+Create a list of ten (10) vegetables you ate during your lifetime. If none, just list down the vegetables in your mind.
+
+```{r}
+vegetables <- list("Bitter gourd", "Eggplant", "Pumpkin", "Moringa", "Water Spinach", "Cucumber", "Potato", "Beans", "Cabbage", "Carrot")
+vegetables
+```
+The vegetable vector now has 10 elements storing vegetables like: "Bitter gourd", "Eggplant", "Pumpkin", "Moringa", "Water Spinach", "Cucumber", "Potato", "Beans", "Cabbage", "Carrot".
+
+
+a. Add 2 additional vegetables after the last vegetables in the list. What is the result?
+
+```{r}
+vegetables_a <- append(vegetables, c("Beetroot", "Mushroom"))
+vegetables_a
+```
+
+The result shows 12 elements now, with Beetroot and Mushroom as 11th and 12th elements.
+
+b. How many data points do you have?
+
+```{r}
+length(vegetables_a)
+```
+There are now 12 data points in the vegetables_a list with beetroot and mushroom being added.
+
+c. Add 4 additional vegetables after index 5. What is the result?
+
+```{r}
+vegetables_b <- append(vegetables_a, c("Broccoli", "Radish", "Lettuce", "Capsicum"), after = 5)
+vegetables_b
+```
+The result shows that the 4 additional vegetables are added right after the 5th element on the list, which is the Water Spinach making the elements 16.
+
+d. How many data points does your vegetable list have
+
+```{r}
+length(vegetables_b)
+```
+There are now 16 data points in vector vegetables, and its a and b conditions. 
