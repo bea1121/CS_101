@@ -13,7 +13,7 @@
 
 <meta name="date" content="2026-09-30" />
 
-<title>Exercise 2</title>
+<title>R Lab: Arithmetic Operations and Basic Data Types</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -350,7 +350,8 @@ display: none;
 
 
 
-<h1 class="title toc-ignore">Exercise 2</h1>
+<h1 class="title toc-ignore">R Lab: Arithmetic Operations and Basic Data
+Types</h1>
 <h4 class="author">Bea Cariaga</h4>
 <h4 class="date">2026-09-30</h4>
 
@@ -372,14 +373,18 @@ a + b</code></pre>
 <pre><code>## [1] 85</code></pre>
 <pre class="r"><code>a / b</code></pre>
 <pre><code>## [1] 3.4</code></pre>
+<p>The answers are 22, 12, 85, and 3.4 respectively.</p>
 <pre class="r"><code># TODO: Using the same a and b, compute and print a %% b and a %/% b
 a %% b</code></pre>
 <pre><code>## [1] 2</code></pre>
 <pre class="r"><code>a %/% b</code></pre>
 <pre><code>## [1] 3</code></pre>
+<p>a %% b shows its remainder which is 2, while a %/% b shows the whole
+number integer of a and b.</p>
 <pre class="r"><code># TODO: Print 2 raised to the power of 10 using the ^ operator
 2^10</code></pre>
 <pre><code>## [1] 1024</code></pre>
+<p>The answer is 1024.</p>
 <p>Question #1: Run 17 / 5, 17 %% 5, and 17 %/% 5 side by side. In your
 own words, explain how these three results relate to each other
 mathematically.</p>
@@ -426,6 +431,9 @@ typeof(x)</code></pre>
 <pre><code>## [1] &quot;logical&quot;</code></pre>
 <pre class="r"><code>typeof(v)</code></pre>
 <pre><code>## [1] &quot;complex&quot;</code></pre>
+<p>the type of the following are:</p>
+<p>x = “double” y = “integer” z = “character” w = “logical” v=
+“complex”</p>
 <pre class="r"><code># TODO: Use class() to check the class of each of x, y, z, w, v
 class(x)</code></pre>
 <pre><code>## [1] &quot;numeric&quot;</code></pre>
@@ -437,6 +445,8 @@ class(x)</code></pre>
 <pre><code>## [1] &quot;logical&quot;</code></pre>
 <pre class="r"><code>class(v)</code></pre>
 <pre><code>## [1] &quot;complex&quot;</code></pre>
+<p>while their classes are: x = “numeric” y = “integer” z = “character”
+w = “logical” v = “complex”</p>
 <pre class="r"><code># TODO: Use mode() to check the class of each of x, y, z, w, v
 mode(x)</code></pre>
 <pre><code>## [1] &quot;numeric&quot;</code></pre>
@@ -448,6 +458,8 @@ mode(x)</code></pre>
 <pre><code>## [1] &quot;logical&quot;</code></pre>
 <pre class="r"><code>mode(v)</code></pre>
 <pre><code>## [1] &quot;complex&quot;</code></pre>
+<p>lastly, their modes are: x = “numeric” y = “numeric” z = “character”
+w = “logical” v = “complex”</p>
 <p>Question #3: x &lt;- 42 and y &lt;- 42L look almost identical, but
 typeof(x) and typeof(y) give different answers. Explain the difference
 in your own words.</p>
@@ -487,6 +499,8 @@ as.numeric(num_string)</code></pre>
 <pre><code>## [1] &quot;character&quot;</code></pre>
 <pre class="r"><code>mode(num_string)</code></pre>
 <pre><code>## [1] &quot;character&quot;</code></pre>
+<p>num_string is then converted to 123 its type is “character” its class
+is “character” and its mode is still “character”</p>
 <pre class="r"><code># TODO: Convert the number 0 and the number 1 to logical using as.logical()
 
 num0 &lt;- 0
@@ -495,12 +509,15 @@ as.logical(num0)</code></pre>
 <pre><code>## [1] FALSE</code></pre>
 <pre class="r"><code>as.logical(num1)</code></pre>
 <pre><code>## [1] TRUE</code></pre>
+<p>num0 is shown to be False, while num1 is True.</p>
 <pre class="r"><code># TODO: Try converting bad_string to numeric using as.numeric()
 
 bad_string &lt;- &quot;hello123&quot;
 as.numeric(bad_string)</code></pre>
 <pre><code>## Warning: NAs introduced by coercion</code></pre>
 <pre><code>## [1] NA</code></pre>
+<p>It shows a warning instead, NA, saying that NAs introduced by
+coercion.</p>
 <p>Question #5: When you ran the conversion-fail chunk, R produced NA
 and a warning instead of stopping with an error.</p>
 <p>Why do you think R is designed to give a warning here rather than
@@ -528,15 +545,19 @@ first_name &lt;- &quot;Juan&quot;
 last_name &lt;- &quot;Dela Cruz&quot;
 cat(first_name, last_name)</code></pre>
 <pre><code>## Juan Dela Cruz</code></pre>
+<p>Result shows Juan Dela Cruz.</p>
 <pre class="r"><code># TODO: Use paste() to combine first_name and last_name into a full name
 # TODO: Use paste0() to do the same, and compare the two results
 paste(first_name, last_name)</code></pre>
 <pre><code>## [1] &quot;Juan Dela Cruz&quot;</code></pre>
 <pre class="r"><code>paste0(first_name, last_name)</code></pre>
 <pre><code>## [1] &quot;JuanDela Cruz&quot;</code></pre>
+<p>paste shows the result of “Juan Dela Cruz”, but with paste0, itshows
+“JuanDela Cruz”.</p>
 <pre class="r"><code># TODO: Use paste() with the argument sep = &quot;-&quot; to join first_name and last_name with a dash instead of a space
 paste(first_name, sep = &quot;-&quot;, last_name)</code></pre>
 <pre><code>## [1] &quot;Juan-Dela Cruz&quot;</code></pre>
+<p>with sep = “-” the result becomes “Juan-Dela Cruz”.</p>
 <pre class="r"><code># TODO: Use paste0() to build the sentence:
 # &quot;Juan Dela Cruz is 21 years old.&quot; by combining full_name, age, and text
 
@@ -545,6 +566,8 @@ age &lt;- 21
 
 paste0(full_name, &quot; is &quot;, age, &quot; years old.&quot;)</code></pre>
 <pre><code>## [1] &quot;Juan Dela Cruz is 21 years old.&quot;</code></pre>
+<p>Output shows ” Juan Dela Cruz is 21 years old.” with the combination
+of full_name, texts, and age.</p>
 <p>Question #7: paste() and paste0() produced different results for the
 same two strings. Explain exactly why, referencing what each function
 does by default.</p>
@@ -569,6 +592,8 @@ handled. You can mix types without explicit conversion.</p>
 # Run it and read the error message carefully.
 
 #&quot;5&quot; + 5</code></pre>
+<p>The result shows and Error because “5” is a non-numeric argument to
+binary operator.</p>
 <pre class="r"><code># TODO: Now fix the code above so that &quot;5&quot; + 5 correctly evaluates to 10
 # using an appropriate conversion function.
 
@@ -576,6 +601,7 @@ result &lt;- as.numeric(&quot;5&quot;) + 5
 
 print(result)</code></pre>
 <pre><code>## [1] 10</code></pre>
+<p>Fixing it, it now shows the correct answer of 5 = 5 which is 10.</p>
 <p>Question #9: Some programming languages automatically convert “5” + 5
 into 10 without an error. R does not.</p>
 <p>Based on what you’ve learned about R’s data types in this lab, why do
